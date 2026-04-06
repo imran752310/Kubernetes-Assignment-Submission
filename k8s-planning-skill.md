@@ -1,72 +1,48 @@
+# 📁 FILE 3: k8s-planning-skill.md
 
-## Kubernetes Planning Agent Skill
+## Kubernetes Planning Skill
 
-### Purpose
+### Description
 
-Generate Kubernetes deployment plans automatically for any application.
+This skill helps in designing Kubernetes deployment plans based on application requirements. It can be reused for different types of systems.
 
-### Input
+### Inputs
 
-* System components
+* Application components
 * Security requirements
-* Scaling needs
+* Performance and scaling needs
 
-### Output
+### Outputs
 
-* Deployments
-* Services
-* ConfigMaps
-* Secrets
-* RBAC
-* Namespaces
+* Deployment strategies
+* Service configurations
+* ConfigMaps and Secrets
+* RBAC policies
+* Namespace structure
 
-### Steps
+### Planning Steps
 
-1. Identify components
-2. Map to Deployments/StatefulSets
-3. Define Services
-4. Add ConfigMaps & Secrets
-5. Apply RBAC
-6. Define scaling (HPA)
-7. Add monitoring
+1. Identify system components
+2. Decide Deployment or StatefulSet
+3. Define service types
+4. Configure environment using ConfigMaps and Secrets
+5. Apply RBAC for access control
+6. Add scaling strategies like HPA
+7. Include monitoring and logging tools
 
 ### Example
 
-Input:
-"E-commerce app with frontend, backend, database"
-
-Output:
+For an e-commerce system:
 
 * Frontend → Deployment + LoadBalancer
 * Backend → Deployment + ClusterIP
-* DB → StatefulSet
+* Database → StatefulSet
 
 ### Reusability
 
-* Works for any microservice architecture
-* Supports secure AI systems
+This approach can be applied to:
 
----
+* Microservices applications
+* AI-based systems
+* Secure enterprise applications
 
-# 🚀 HOW TO SUBMIT (IMPORTANT)
-
-1. Create a GitHub repository
-2. Create 3 files:
-
-   * plan1-scenario1.md
-   * plan2-scenario2.md
-   * k8s-planning-skill.md
-3. Copy each section into its file
-4. Push to GitHub
-5. Submit repository link
-
----
-
-# ⭐ BONUS (OPTIONAL)
-
-* Add architecture diagram image
-* Add README.md
-
----
-
-✅ YOUR ASSIGNMENT IS NOW 100% COMPLETE

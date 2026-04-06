@@ -1,20 +1,22 @@
 
+# 📁 FILE 2: plan2-scenario2.md
+
 ## Scenario 2: AI Employee (OpenClaw)
 
-### Architecture
+### Overview
 
-Secure AI agent deployed in Kubernetes
+This scenario focuses on deploying a secure AI employee inside Kubernetes with strong emphasis on access control and secret management.
 
 ### Deployments
 
 * AI Employee Deployment
-* Database (StatefulSet)
+* Database deployed as StatefulSet for persistent storage
 
 ### Services
 
-* Internal services → ClusterIP
+* Internal communication handled using ClusterIP services
 
-### Resource Requests
+### Resource Configuration
 
 ```yaml
 resources:
@@ -28,44 +30,50 @@ resources:
 
 ### ConfigMaps
 
-* Non-sensitive configs
+Used for non-sensitive configuration values
 
 ### Secrets
 
+Used for:
+
 * API keys
-* Tokens
+* Authentication tokens
 
 ### Secret Expiry Handling
 
-* Auto rotation
-* Vault integration
-* Restart pods on expiry
+* Secrets should be rotated periodically
+* Integration with external secret managers like Vault is recommended
+* Pods should restart automatically after secret updates
 
 ### Namespaces
 
-* ai-employee
-* monitoring
+* ai-employee namespace
+* monitoring namespace
 
 ### RBAC
 
-* Least privilege
-* Role + RoleBinding
+* Follow least privilege principle
+* Define Roles and RoleBindings carefully
 
-### Security
+### Security Measures
 
-* Network Policies
-* External Secret Manager
+* Apply Network Policies to restrict traffic
+* Use external secret management systems
 
 ### Monitoring
 
-* Prometheus
-* Grafana
-* ELK
+* Prometheus for metrics
+* Grafana for visualization
+* ELK stack for logging
 
 ### Compromise Handling
 
-* Revoke secrets
-* Restart pods
-* Audit logs
+If a security breach occurs:
+
+* Immediately revoke secrets
+* Restart affected pods
+* Rotate credentials
+* Review logs for suspicious activity
 
 ---
+

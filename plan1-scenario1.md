@@ -1,27 +1,31 @@
 
 ## Scenario 1: AI Native Task Manager
 
-### Architecture
+### Overview
 
-Microservices system deployed on Kubernetes:
+This scenario represents a task management system designed using a microservices architecture. Each component runs independently inside a Kubernetes cluster, allowing better scalability and maintenance.
 
-* UI Interface
+### Components
+
+* UI Interface (Frontend)
 * Backend APIs
-* Todo Agent
+* Todo Agent (background worker)
 * Notification Service
 
 ### Deployments
 
-* UI Deployment (2 replicas)
-* Backend Deployment (3 replicas)
-* Todo Agent Deployment (worker)
-* Notification Deployment
+Each component is deployed separately:
+
+* UI Deployment (2 replicas for availability)
+* Backend Deployment (3 replicas for handling requests)
+* Todo Agent Deployment (single or scalable worker)
+* Notification Service Deployment
 
 ### Services
 
-* UI → LoadBalancer / Ingress
-* Backend → ClusterIP
-* Notification → ClusterIP
+* UI exposed using LoadBalancer or Ingress for external access
+* Backend exposed internally using ClusterIP
+* Notification service uses ClusterIP
 
 ### Resource Requests & Limits
 
@@ -37,28 +41,36 @@ resources:
 
 ### ConfigMaps
 
-* API URLs
-* Environment configs
+Used for storing:
+
+* API endpoints
+* Environment variables
 
 ### Secrets
 
-* DB credentials
-* API keys
+Used for sensitive data:
+
+* Database credentials
+* API tokens
 
 ### Namespaces
 
-* frontend
-* backend
-* agents
+To organize workloads:
+
+* frontend namespace
+* backend namespace
+* agents namespace
 
 ### RBAC
 
-* Backend: limited access
-* Agent: API access only
+Access is controlled using roles:
 
-### Communication
+* Backend has limited access
+* Todo Agent can only access required APIs
 
-* UI → Backend
-* Backend ↔ Agent
-* Notification → UI
+### Communication Flow
+
+* UI communicates with Backend APIs
+* Backend communicates with Todo Agent
+* Notification service sends updates to UI
 
