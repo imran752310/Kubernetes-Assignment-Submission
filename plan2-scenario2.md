@@ -1,6 +1,4 @@
 
-# 📁 FILE 2: plan2-scenario2.md
-
 ## Scenario 2: AI Employee (OpenClaw)
 
 ### Overview

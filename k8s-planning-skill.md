@@ -1,4 +1,3 @@
-# 📁 FILE 3: k8s-planning-skill.md
 
 ## Kubernetes Planning Skill
 
